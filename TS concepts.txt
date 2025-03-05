@@ -15,7 +15,7 @@ function add(a, b) {
 
 console.log(add(5, "10")); // "510" (Unexpected output)
 
-Need for Static Typing was felt
+Need for Static Typing was felt.
 ====
 Typescript fix:
 function add(a: number, b: number): number {
@@ -23,7 +23,25 @@ function add(a: number, b: number): number {
 }
 
 console.log(add(5, "10")); //  TypeScript Error: Argument of type 'string' is not assignable to 'number'
+=======
+
 TypeScript prevents such errors at compile-time( before runtime).
+JavaScript (since it’s interpreted) only catches errors at runtime,meaning some issues may appear after deployment.
+TypeScript compiles to JavaScript (.ts → .js).
+=======
+another eg:
+Compile Time error (TS):->
+let num: number = "Hello"; // Error: Type 'string' is not assignable to type 'number'.TypeScript compiler (tsc) stops execution 
+
+Runtime Error (JavaScript):->
+
+function divide(a, b) {
+  return a / b;
+}
+
+console.log(divide(10, 0)); // Infinity (No compile-time error, but logic issue)
+console.log(x); //  ReferenceError: x is not defined (Runtime Error)
+
 
 2. JavaScript lacks features like interfaces, namespaces, and strong OOP support, making it hard to maintain large applications.
 
@@ -137,6 +155,21 @@ const users: UserInfo = {
   user2: { name: "Bob", age: 30 },
 };
 
+
+11. Namespace
+A namespace in TypeScript is used to group related code together under a single name, 
+preventing variable and function name conflicts.
+
+namespace MyNamespace {
+  export const greeting = "Hello, TypeScript!";
+  
+  export function sayHello(name: string) {
+    return `${greeting} Welcome, ${name}!`;
+  }
+}
+
+// Accessing namespace members
+console.log(MyNamespace.sayHello("Alice")); // O/P: Hello, TypeScript! Welcome, Alice!
 
 
 
