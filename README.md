@@ -19,3 +19,10 @@ ts-node src/index.ts
 npx tsc
 
 node dist/index.js
+
+## Install TypeScript
+npm install --save-dev typescript
+
+## Create a tsconfig.json File
+npx tsc –init
+

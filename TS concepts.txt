@@ -1,0 +1,144 @@
+TypeScript extends JavaScript (ECMAScript) by adding static typing and other advanced features that do not exist in vanilla JavaScript. 
+Typescript is superset of javascript. 
+JavaScript focuses on runtime features, while TypeScript focuses on static typing and compile-time checks.
+Documentation Website: https://www.typescriptlang.org/
+History:
+====
+TypeScript was developed by Microsoft, and it was first released in 2012.
+Why was TS needed:
+1. JavaScript is dynamically typed language, meaning types are determined at runtime. This often causes runtime errors that are hard to debug.
+====
+eg: (JavaScript Bug)
+function add(a, b) {
+  return a + b;
+}
+
+console.log(add(5, "10")); // "510" (Unexpected output)
+
+Need for Static Typing was felt
+====
+Typescript fix:
+function add(a: number, b: number): number {
+  return a + b;
+}
+
+console.log(add(5, "10")); //  TypeScript Error: Argument of type 'string' is not assignable to 'number'
+TypeScript prevents such errors at compile-time( before runtime).
+
+2. JavaScript lacks features like interfaces, namespaces, and strong OOP support, making it hard to maintain large applications.
+
+3. TypeScript improves developer experience by code completion & IntelliSense in IDEs like VS Code.
+
+Features:
+=====
+1. Static Typing
+Unlike JavaScript, TypeScript allows you to specify types explicitly, catching errors at compile time
+
+let name: string = "Alice"; //  Type is enforced
+name = 42; //  Error: Type 'number' is not assignable to type 'string'
+
+2. Interfaces
+Interfaces define the structure of objects and enforce type safety.
+
+interface User {
+  id: number;
+  name: string;
+}
+
+const user: User = { id: 1, name: "Alice" }; // Works
+const invalidUser: User = { id: "one", name: "Alice" }; //  Error
+
+3. Enums
+Enums provide a way to define a set of named constants, which JavaScript lacks.
+
+enum Role {
+  Admin,
+  User,
+  Guest,
+}
+
+let myRole: Role = Role.Admin;
+console.log(myRole); // Output: 0
+
+4. Decorators 
+Decorators allow meta-programming and are used in Angular.
+https://angular.dev/api/core/Component
+
+5. Optional Chaining & Nullish Coalescing
+Although optional chaining (?.) and nullish coalescing (??) exist in modern JavaScript, TypeScript integrates them better.
+
+let user = { name: "Alice", address: null };
+console.log(user.address?.city); //  Undefined instead of error
+
+let input: string | null = null;
+console.log(input ?? "Default Value"); //  "Default Value"
+
+
+6. Generics
+Generics allow functions and classes to work with multiple types while maintaining type safety.
+
+function identity<T>(arg: T): T {
+  return arg;
+}
+
+console.log(identity<string>("Hello")); //  Works
+console.log(identity<number>(42)); // Works
+
+====
+Advanced concepts
+====
+7. Type Aliases & Union Types
+JavaScript does not support explicit union types.
+
+type ID = number | string;
+
+let userId: ID = 101; //  Works
+userId = "ABC123"; //  Works
+userId = true; // Error: Type 'boolean' is not assignable to 'ID'
+
+
+8. Tuples
+TypeScript allows fixed-length arrays with specific types.
+
+let person: [string, number] = ["Alice", 25]; // Works
+person = [25, "Alice"]; // Error: Type mismatch
+
+
+9. Type Assertions
+Type assertions help the compiler treat values as a specific type.
+
+let someValue: unknown = "Hello";
+let strLength: number = (someValue as string).length;
+
+10. Utility Types (Built-in Helpers)
+TypeScript has built-in utility types for common transformations.
+
+eg: Record<K, T> is a built-in utility type that creates an object type with specific keys (K) and values (T).
+
+Example: Mapping Keys to Values
+===
+type UserRoles = Record<string, string>;
+
+const roles: UserRoles = {
+  admin: "Full Access",
+  user: "Limited Access",
+  guest: "Read Only",
+};
+
+ Works fine because both keys (string) and values (string) match the type.
+
+ Nested Record
+Record can also store complex objects.
+=====
+type UserInfo = Record<string, { name: string; age: number }>;
+
+const users: UserInfo = {
+  user1: { name: "Alice", age: 25 },
+  user2: { name: "Bob", age: 30 },
+};
+
+
+
+
+
+
