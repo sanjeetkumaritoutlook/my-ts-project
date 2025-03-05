@@ -1,6 +1,7 @@
 import { add, multiply } from "./utils/math";
 import { Person } from "./models/person";
 import { fetchData } from "./services/api";
+import logger from "./utils/logger";
 
 console.log("Addition:", add(5, 10));
 console.log("Multiplication:", multiply(3, 4));
@@ -15,3 +16,5 @@ async function loadData() {
 }
 
 loadData();
+logger.info("Application started");
+logger.error("Something went wrong!");

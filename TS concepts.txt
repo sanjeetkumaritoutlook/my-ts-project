@@ -172,6 +172,15 @@ namespace MyNamespace {
 console.log(MyNamespace.sayHello("Alice")); // O/P: Hello, TypeScript! Welcome, Alice!
 
 
+12.  ! (non-null assertion operator) 
+! prevents TypeScript errors for uninitialized properties.
+! suppresses TypeScript's strict null checking, allowing us to declare it without an initial value.
+====
+eg:
+private dateInput!: HTMLInputElement;
+
+To fix it without !, you could do:
+private dateInput: HTMLInputElement | null = null;
 
 
 
