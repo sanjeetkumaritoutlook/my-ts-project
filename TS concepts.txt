@@ -28,6 +28,9 @@ console.log(add(5, "10")); //  TypeScript Error: Argument of type 'string' is no
 TypeScript prevents such errors at compile-time( before runtime).
 JavaScript (since it’s interpreted) only catches errors at runtime,meaning some issues may appear after deployment.
 TypeScript compiles to JavaScript (.ts → .js).
+In Angular , application process TypeScript files using Angular CLI, 
+which internally uses TypeScript Compiler (tsc) and Webpack for bundling.
+
 =======
 another eg:
 Compile Time error (TS):->
