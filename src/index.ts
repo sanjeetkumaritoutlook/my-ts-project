@@ -17,4 +17,5 @@ async function loadData() {
 
 loadData();
 logger.info("Application started");
+logger.warn("This is a warning!");
 logger.error("Something went wrong!");
