@@ -69,6 +69,10 @@ interface User {
 const user: User = { id: 1, name: "Alice" }; // Works
 const invalidUser: User = { id: "one", name: "Alice" }; //  Error
 
+Interfaces and classes serve different primary purposes in TypeScript.
+ Interfaces define contracts for the shape of objects, specifying required properties and methods without providing implementation details.
+ Classes, on the other hand, define blueprints for creating objects, including both the structure (properties) and behavior (methods).
+
 3. Enums
 Enums provide a way to define a set of named constants, which JavaScript lacks.
 
@@ -80,6 +84,8 @@ enum Role {
 
 let myRole: Role = Role.Admin;
 console.log(myRole); // Output: 0
+
+In TypeScript, enum members have numeric values assigned by default, starting from 0 and incrementing by 1.
 
 4. Decorators 
 Decorators allow meta-programming and are used in Angular.
@@ -94,8 +100,17 @@ console.log(user.address?.city); //  Undefined instead of error
 let input: string | null = null;
 console.log(input ?? "Default Value"); //  "Default Value"
 
+6. void type
 
-6. Generics
+TypeScript introduces void to explicitly specify that a function does not return a value.
+eg: 
+function logMessage(): void {
+  console.log("Hello, World!");
+}
+
+
+
+7. Generics
 Generics allow functions and classes to work with multiple types while maintaining type safety.
 
 function identity<T>(arg: T): T {
@@ -108,7 +123,7 @@ console.log(identity<number>(42)); // Works
 ====
 Advanced concepts
 ====
-7. Type Aliases & Union Types
+8. Type Aliases & Union Types
 JavaScript does not support explicit union types.
 
 type ID = number | string;
@@ -118,20 +133,20 @@ userId = "ABC123"; //  Works
 userId = true; // Error: Type 'boolean' is not assignable to 'ID'
 
 
-8. Tuples
+9. Tuples
 TypeScript allows fixed-length arrays with specific types.
 
 let person: [string, number] = ["Alice", 25]; // Works
 person = [25, "Alice"]; // Error: Type mismatch
 
 
-9. Type Assertions
+10. Type Assertions
 Type assertions help the compiler treat values as a specific type.
 
 let someValue: unknown = "Hello";
 let strLength: number = (someValue as string).length;
 
-10. Utility Types (Built-in Helpers)
+11. Utility Types (Built-in Helpers)
 TypeScript has built-in utility types for common transformations.
 
 eg: Record<K, T> is a built-in utility type that creates an object type with specific keys (K) and values (T).
@@ -159,7 +174,7 @@ const users: UserInfo = {
 };
 
 
-11. Namespace
+12. Namespace
 A namespace in TypeScript is used to group related code together under a single name, 
 preventing variable and function name conflicts.
 
@@ -175,7 +190,7 @@ namespace MyNamespace {
 console.log(MyNamespace.sayHello("Alice")); // O/P: Hello, TypeScript! Welcome, Alice!
 
 
-12.  ! (non-null assertion operator) 
+13.  ! (non-null assertion operator) 
 ! prevents TypeScript errors for uninitialized properties.
 ! suppresses TypeScript's strict null checking, allowing us to declare it without an initial value.
 ====
