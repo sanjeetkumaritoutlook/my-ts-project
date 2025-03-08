@@ -126,11 +126,15 @@ Advanced concepts
 8. Type Aliases & Union Types
 JavaScript does not support explicit union types.
 
+TS eg: 
 type ID = number | string;
 
 let userId: ID = 101; //  Works
 userId = "ABC123"; //  Works
 userId = true; // Error: Type 'boolean' is not assignable to 'ID'
+
+Union types are useful when a value can be of multiple types, such as function parameters, return types, or object properties.
+
 
 
 9. Tuples

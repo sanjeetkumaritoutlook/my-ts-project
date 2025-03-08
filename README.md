@@ -26,3 +26,10 @@ npm install --save-dev typescript
 ## Create a tsconfig.json File
 npx tsc –init
 
+## Compile the TypeScript files (together) -> another way
+
+tsc src/index.ts src/types/personUtils.ts
+
+## Run the compiled JavaScript:
+node index.js
+
