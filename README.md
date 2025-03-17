@@ -33,3 +33,19 @@ tsc src/index.ts src/types/personUtils.ts
 ## Run the compiled JavaScript:
 node index.js
 
+## to connect to private registry
+first set registry
+
+npm config set registry https://sanjeet-registry-612233812744.d.codeartifact.ap-south-1.amazonaws.com/npm/my-private-npm/
+
+(or)
+
+aws codeartifact login --tool npm --repository my-private-npm --domain sanjeet-registry --domain-owner 612233812744
+
+npm update @my-scope/hello-package
+
+switch to public registry:
+
+npm set registry https://registry.npmjs.org/
+
+

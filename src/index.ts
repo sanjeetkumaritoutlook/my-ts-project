@@ -6,12 +6,15 @@ import logger from "./utils/logger";
 import { printPerson, User, Admin } from "./types/personUtils";
 import { printId } from "./types/utils";
 //installed from private registry in  AWS CodeArtifact, registry has it own domain, not npm
-const { greet ,farewell } = require('@my-scope/hello-package');
+const { greet ,farewell ,toUpperCase, getCurrentDate, getRandomNumber} = require('@my-scope/hello-package');
 
 console.log(greet('Sanjeet'));
 console.log(greet('Sanjeet', 'hi')); 
 console.log(greet('Sanjeet', 'es')); 
 console.log(farewell('Sanjeet')); 
+console.log(toUpperCase('hello'));
+console.log("curent Date:", getCurrentDate());
+console.log("Random Number:", getRandomNumber(1,100));
 
 console.log("Addition:", add(5, 10));
 console.log("Multiplication:", multiply(3, 4));
