@@ -49,3 +49,10 @@ switch to public registry:
 npm set registry https://registry.npmjs.org/
 
 
+## How can we run TS code:
+1)compile to JS-> node, browser : tsc filename.ts
+
+2)directly with ts-node
+
+3)Bundle with a Bundling tool (webpack,parcel) and run in browser
+
