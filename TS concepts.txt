@@ -206,3 +206,45 @@ private dateInput: HTMLInputElement | null = null;
 
 
 
+14. Type Guard
+A type guard is any expression that performs a runtime check to ensure a variable is of a specific type.
+=====
+function printId(id: number | string) {
+  if (typeof id === "string") {
+    // TypeScript knows `id` is a string here
+    console.log(id.toUpperCase());
+  } else {
+    // Here, `id` is narrowed to a number
+    console.log(id.toFixed(2));
+  }
+}
+
+Here, typeof id === "string" is a type guard.
+
+Other built-in type guards:
+
+typeof
+
+instanceof
+
+Array.isArray
+
+15. Type Predicate
+
+A type predicate is a special return type for a function that tells TypeScript something is a specific type.
+==
+function isString(value: unknown): value is string {
+  return typeof value === "string";
+}
+
+Notice the return type: value is string
+
+This tells TypeScript: “If this returns true, then value is definitely a string”
+
+====
+function isDog(animal: Animal): animal is Dog {
+  return (animal as Dog).bark !== undefined;
+}
+
+The return type animal is Dog is the type predicate.
+

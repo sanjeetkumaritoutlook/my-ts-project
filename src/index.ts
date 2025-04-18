@@ -5,6 +5,9 @@ import { fetchData } from "./services/api";
 import logger from "./utils/logger";
 import { printPerson, User, Admin } from "./types/personUtils";
 import { printId } from "./types/utils";
+import { printIdType } from "./guards/typeguard";
+import { makeSound ,Dog,Cat} from "./guards/typepredicate";
+import {isString,logValue} from "./guards/type-predicate";
 //installed from private registry in  AWS CodeArtifact, registry has it own domain, not npm
 const { greet ,farewell ,toUpperCase, getCurrentDate, getRandomNumber} = require('@my-scope/hello-package');
 
@@ -50,6 +53,36 @@ printPerson(admin);
 printId(101);   
 printId("A102");   
 //printId(true);  
+
+printIdType(123);          // Output: "123.00"
+printIdType("typescript"); // Output: "TYPESCRIPT"
+//printIdType(true); // ❌ Error: Argument of type 'boolean' is not assignable to parameter of type 'number | string'.
+const dog: Dog = {
+  bark: () => console.log("Woof!"),
+};
+
+makeSound(dog); // Output: "Woof!"
+
+const cat: Cat = {
+  meow: () => console.log("Meow!"),
+};
+
+makeSound(cat); // Output: "Meow!"
+
+logValue("hello");   // Output: "HELLO"
+logValue(42);        // Output: "Not a string: 42"
+logValue(true);      // Output: "Not a string: true"
+
+console.log(isString("TypeScript")); // true
+console.log(isString(123));          // false
+
+const myValue: unknown = "chatGPT";
+
+if (isString(myValue)) {
+  // TypeScript now knows `myValue` is a string here
+  console.log(myValue.length); // 7
+}
+
 
 logger.info("Application started");
 logger.warn("This is a warning!");
