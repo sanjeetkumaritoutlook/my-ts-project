@@ -1,0 +1,13 @@
+Find a number in an array in JavaScript.
+
+See below the different approaches- 
+
+const numbers = [10, 20, 30, 40, 50];
+const target = 30;
+
+1. const exists = numbers.includes(target); // true 
+2. const index = numbers.indexOf(target); // if not found, indexOf returns -1.
+3. const found = numbers.find(num => num === target); // find first matching element
+4. const allMatches = numbers.filter(num => num === target); // find all matching element 
+
+===
