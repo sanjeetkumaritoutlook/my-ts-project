@@ -56,3 +56,4 @@ npm set registry https://registry.npmjs.org/
 
 3)Bundle with a Bundling tool (webpack,parcel) and run in browser
 
+javascript games: https://github.com/thisisabhishek/javascriptgames
