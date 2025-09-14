@@ -101,3 +101,24 @@ if (isString(myValue)) {
 logger.info("Application started");
 logger.warn("This is a warning!");
 logger.error("Something went wrong!");
+
+/*
+In browser → It prints both to console + webpage.
+
+In Node → It prints only to console (skips DOM since document doesn’t exist).
+*/
+const oldLog = console.log;
+
+console.log = (...args: any[]) => {
+  oldLog(...args);
+
+  if (typeof document !== "undefined") {
+    const outputEl = document.getElementById("output");
+    if (outputEl) {
+      outputEl.innerHTML += args.join(" ") + "<br>";
+    }
+  }
+};
+
+console.log("App started to be shown on browser UI also!");
+console.log("2 + 2 =", 2 + 2);
