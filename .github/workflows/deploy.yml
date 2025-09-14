@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main   # or master, depending on your repo
+      - main   
 
 jobs:
   build:
@@ -16,6 +16,36 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+
+      # - name: Configure AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v4
+      #   with:
+      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     aws-region: ap-south-1   # adjust your region
+
+      # - name: Authenticate with CodeArtifact
+      #   run: |
+      #     aws codeartifact login \
+      #       --tool npm \
+      #       --repository <your-repo> \
+      #       --domain <your-domain> \
+      #       --domain-owner <your-account-id> \
+      #       --region ap-south-1
+
+      - name: Create mock hello-package
+        run: |
+          mkdir -p node_modules/@my-scope/hello-package
+          cat <<'EOF' > node_modules/@my-scope/hello-package/index.js
+          module.exports = {
+            greet: (name) => "Hello from mock " + name,
+            farewell: (name) => "Bye from mock " + name,
+            toUpperCase: (s) => s.toUpperCase(),
+            getCurrentDate: () => new Date(),
+            getRandomNumber: (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
+          };
+          EOF
+ 
 
       - name: Install dependencies
         run: npm install

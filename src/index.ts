@@ -9,7 +9,21 @@ import { printIdType } from "./guards/typeguard";
 import { makeSound ,Dog,Cat} from "./guards/typepredicate";
 import {isString,logValue} from "./guards/type-predicate";
 //installed from private registry in  AWS CodeArtifact, registry has it own domain, not npm
-const { greet ,farewell ,toUpperCase, getCurrentDate, getRandomNumber} = require('@my-scope/hello-package');
+let helloPkg: any;
+try {
+  helloPkg = require('@my-scope/hello-package');
+} catch (e) {
+  helloPkg = {
+    greet: (name: string) => `Hello, ${name} (fallback)!`,
+    farewell: (name: string) => `Bye, ${name} 👋`,
+    toUpperCase: (s: string) => s.toUpperCase(),
+    getCurrentDate: () => new Date(),
+    getRandomNumber: (min: number, max: number) =>
+      Math.floor(Math.random() * (max - min + 1)) + min
+  };
+}
+const { greet, farewell, toUpperCase, getCurrentDate, getRandomNumber } = helloPkg;
+
 
 console.log(greet('Sanjeet'));
 console.log(greet('Sanjeet', 'hi')); 
