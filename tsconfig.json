@@ -2,12 +2,17 @@
   "compilerOptions": {
     "target": "ES6",
     // "module": "CommonJS",    // Node-friendly (for Node / ts-node) for local testing
-    "module": "ES2020",   // for browser friendly ES module and github actions pages
+    "module": "esnext",   // for browser friendly ES module and github actions pages
     "outDir": "./dist",
     "rootDir": "./src",
      "moduleResolution": "node",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+     "skipLibCheck": true             // avoids typing errors from Node-only libs
+
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+
+
 }
