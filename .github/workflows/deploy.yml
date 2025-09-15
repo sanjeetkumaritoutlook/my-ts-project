@@ -57,7 +57,7 @@ jobs:
         run: npm install
 
       - name: Build project
-        run: npm run build:browser
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

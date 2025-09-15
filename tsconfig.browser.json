@@ -1,7 +1,0 @@
-{
-  "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-    "module": "ES2020",       // Browser-friendly ES module & GitHub Pages
-    "outDir": "./dist-browser"
-  }
-}

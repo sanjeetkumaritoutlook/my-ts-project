@@ -4,10 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-	  "build:node": "tsc -P tsconfig.node.json",
-    "build:browser": "tsc -P tsconfig.browser.json",
-    "start:node": "ts-node -P tsconfig.node.json src/index.ts",
-    "serve": "npx http-server ./dist-browser",
+	"build": "tsc",
     "deploy": "npm run build && gh-pages -d ."
   },
   "keywords": [],

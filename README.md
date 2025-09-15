@@ -12,13 +12,7 @@ Decorators
 
 ## Run TypeScript Directly with ts-node in Local
 
-ts-node src/index.ts [not working]
-
-npm run start:node → runs code locally in Node
-
-npm run build:browser → generates dist-browser/index.js for GitHub Pages
-
-npm run serve → preview in browser
+ts-node src/index.ts
 
 ## Compile TypeScript to JavaScript (optional)
 

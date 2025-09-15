@@ -1,7 +1,0 @@
-{
-  "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-    "module": "commonjs",     // Node-friendly (for Node / ts-node) for local testing
-    "outDir": "./dist-node"
-  }
-}
