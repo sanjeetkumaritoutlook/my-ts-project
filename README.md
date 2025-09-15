@@ -11,6 +11,7 @@ Type Guards
 Decorators
 
 ## Run TypeScript Directly with ts-node in Local
+first for local only , apply  "module": "commonjs" in tsconfig.json
 
 ts-node src/index.ts
 
