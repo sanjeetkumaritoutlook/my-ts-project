@@ -11,7 +11,7 @@
      "skipLibCheck": true             // avoids typing errors from Node-only libs
 
   },
-  "include": ["src"],
+  "include": ["src"]
   //"exclude": ["node_modules", "dist"]
 
 
