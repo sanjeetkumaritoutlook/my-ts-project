@@ -1,5 +1,5 @@
 import * as winston from "winston";
-import * as DailyRotateFile from "winston-daily-rotate-file";
+import DailyRotateFile from "winston-daily-rotate-file";
 
 // Custom log filter (logs only "error" and "warn")
 const logFilter = winston.format((info, opts) => {

@@ -5,7 +5,9 @@
     "module": "ES2020",   // for browser friendly ES module and github actions pages
     "outDir": "./dist",
     "rootDir": "./src",
-    "strict": true
+     "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true
   },
   "include": ["src"]
 }
