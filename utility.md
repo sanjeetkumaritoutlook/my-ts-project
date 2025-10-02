@@ -14,3 +14,4 @@ https://learn-with-bittu.vercel.app/javascript-articles
 https://github.com/bittu1040/JavaScript-Coding-and-Notes
 
 https://github.com/bittu1040
+![array](javascript_array_methods.png)
